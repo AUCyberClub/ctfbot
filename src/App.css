@@ -40,6 +40,11 @@
     position: relative;
 }
 
+.text span {
+    color: #d3332f;
+    font-size: 0.9em;
+}
+
 .user {
     color: #027084;
 }

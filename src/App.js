@@ -39,7 +39,7 @@ class App extends Component {
       <div className="App" onClick={this.generalFocus.bind(this)}>
         <div className="chat">
           {this.state.history.map((t,i) =>
-            (<Text from={t.from} text={t.text} key={i} index={i+1} length={this.state.history.length}/>)
+            (<Text from={t.from} text={t.text} key={i} index={i+1} length={this.state.history.length} ttb={this.tellToBot.bind(this)}/>)
           )}
           <div className="text inp">
             <i className="material-icons">&#xE315;</i>
@@ -51,7 +51,7 @@ class App extends Component {
           </div>
         </div>
         <div className="footer">Lynx v0.0.3 &middot;
-          <span onClick={() => { this.tellToBot('Nasıl kullanacağım hakkında bilgi verir misin?', "BİLGİ"); }}>[BİLGİ]</span>
+          <span onClick={() => { this.tellToBot('', "BİLGİ"); }}>[BİLGİ]</span>
           <a href="https://github.com/AUCyberClub/ctfbot" target="_blank">[KAYNAK]</a></div>
       </div>
     );

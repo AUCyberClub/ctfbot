@@ -20,7 +20,18 @@ class Comp extends Component {
     if(loading){
       return "...";
     }else{
-      return this.props.text;
+      let returnArray = [];
+      let txt = this.props.text;
+      txt.split("[").forEach((t, i) => {
+        if(i != 0) {
+          let inf = t.split("]")[0];
+          returnArray.push(<span onClick={() => { this.props.ttb('', inf); }}>[{inf.split("=")[0]}] </span>);
+        }else{
+          returnArray.push(t);
+          returnArray.push(<br/>);
+        }
+      });
+      return returnArray.map(r => (r));
     }
   }
 
