@@ -25,10 +25,9 @@ class Comp extends Component {
       txt.split("[").forEach((t, i) => {
         if(i != 0) {
           let inf = t.split("]")[0];
-          returnArray.push(<span onClick={() => { this.props.ttb('', inf); }}>[{inf.split("=")[0]}] </span>);
+          returnArray.push(<span key={makeid()} onClick={() => { this.props.ttb('', inf); }}>[{inf.split("=")[0]}] </span>);
         }else{
-          returnArray.push(t);
-          returnArray.push(<br/>);
+          returnArray.push(<p key={makeid()}>{t}</p>);
         }
       });
       return returnArray.map(r => (r));
@@ -46,3 +45,14 @@ class Comp extends Component {
 }
 
 export default Comp;
+
+
+function makeid(){
+    var length = 5;
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for(var i=0; i < length; i++){
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+}

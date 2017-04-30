@@ -27,7 +27,7 @@ class Storage {
   addToChatHistory(from, text){
     console.log("Adding to history": text);
     let historyArray = this.getHistoryArray();
-    if(historyArray.length > 6){
+    if(historyArray.length > 10){
       historyArray.shift();
     }
     historyArray.push({from, text});

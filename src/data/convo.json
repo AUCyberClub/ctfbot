@@ -1,0 +1,6 @@
+[
+  {"question": ["selam", "merhaba"], "answer": ["Merhaba", "Selamlar", "Boşver selamı, soruları çözmeye çalış!"]},
+  {"question": ["insan"], "answer": ["Hayır demem gerekiyor", "Büyük ihtimalle hayır", "Sanıyorum.. Hayır"]},
+  {"question": ["kim", "yapıldı", "geliştir"], "answer": ["Ben, AUCC tarafından geliştiridim.", "AUCC diye bir ekip tarafından geliştirildim."]},
+  {"question": ["programlama", "dili"], "answer": ["En iyi programlama dili Javascript'tir.", "Tabii ki Javascript."]}
+]

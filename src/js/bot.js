@@ -1,8 +1,9 @@
 import Storage from './storage';
-
+import Convo from './../data/convo.json';
 
 class Bot {
   constructor(){
+    console.log(Convo);
     this.storage = Storage();
     this.name = this.storage.getUserName();
     this.pass = false;
@@ -59,15 +60,22 @@ class Bot {
     }
 
     if(val == 'soruları listele' || val == 'soruları göster'){
-      answer = "Tüm sorular: [1][2][3][4][5][6][7][8][9][10][11]";
+      answer = "Tüm sorular: [1][2][3][4][5][6][7][8][9][10][11]"; //get questions from api
     }
-
 
     if(val == 'çözülmemiş soruları listele' || val == 'çözülmemiş soruları göster'){
-      answer = "Çözülmemiş sorular: [1][4][6][10][11]";
+      answer = "Çözülmemiş sorular: [1][4][6][10][11]"; // get unsolved questions form api
     }
 
-
+    Convo.forEach(c => {
+      let check = false;
+      c.question.forEach(cq => {
+        check = check || val.includes(cq);
+      });
+      if(check){
+        answer = c.answer[rand(0, c.answer.length)];
+      }
+    });
 
 
 // array button controllers
@@ -93,6 +101,17 @@ class Bot {
       if(q > this.questionLength) break;
     }
 
+    q = 1;
+    while(1){
+      if(info == "İNDİR="+q || (val.includes("indir") && val.split(".")[0] == q)){
+        val = q +". soruyu indir";
+        answer = q +". soru indirildi [CEVAPLA="+q+"]";
+        this.answering = q;
+      }
+      q++;
+      if(q > this.questionLength) break;
+    }
+
 
 
     if(!answer){
@@ -107,4 +126,10 @@ let _bot = new Bot();
 
 export default function get(){
   return _bot;
+}
+
+function rand(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
 }
