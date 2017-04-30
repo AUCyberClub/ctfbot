@@ -27,7 +27,7 @@
 }
 
 .input::after {
-    content: "[PRESS ENTER TO SUBMIT]";
+    content: "[GÖNDERMEK İÇİN ENTER'A BAS]";
     position: absolute;
     color: #d3332f;
     left: 0px;
@@ -41,7 +41,7 @@
 }
 
 .user {
-    color: #111;
+    color: #027084;
 }
 
 .text i {
@@ -58,4 +58,13 @@
 
 .desc {
     border: 1px dashed #eee;
+}
+
+.footer {
+    position: absolute;
+    color: #aaa;
+    width: 100%;
+    text-align: center;
+    bottom: 10px;
+    font-size: 0.9em;
 }

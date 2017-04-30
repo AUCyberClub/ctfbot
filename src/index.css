@@ -10,6 +10,15 @@
     color: #555;
 }
 
+a {
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+a:hover {
+    opacity: 1;
+}
+
 *:focus {
     outline: none;
 }
