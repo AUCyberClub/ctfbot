@@ -35,12 +35,17 @@ class Comp extends Component {
   }
 
   render() {
-    return (
-      <div className={["text", this.props.from].join(" ")} style={{opacity: this.props.index*(1/this.props.length)}}>
-        <i className="material-icons">&#xE315;</i>
-        {this.renderText(this.state.loading)}
-      </div>
-    );
+    if(this.props.text){
+      return (
+        <div className={["text", this.props.from].join(" ")} style={{opacity: this.props.index*(1/this.props.length)}}>
+          <i className="material-icons">&#xE315;</i>
+          {this.renderText(this.state.loading)}
+        </div>
+      );
+    }else{
+      return (<p></p>);
+    }
+
   }
 }
 

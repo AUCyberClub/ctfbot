@@ -38,8 +38,13 @@ class App extends Component {
     return (
       <div className="App" onClick={this.generalFocus.bind(this)}>
         <div className="chat">
-          {this.state.history.map((t,i) =>
-            (<Text from={t.from} text={t.text} key={i} index={i+1} length={this.state.history.length} ttb={this.tellToBot.bind(this)}/>)
+          {this.state.history.map((t,i) => {
+              if(i != this.state.history.length - 1){
+                return ( <Text from={t.from} text={t.text} key={i} index={i+1} length={this.state.history.length} ttb={this.tellToBot.bind(this)}/>);
+              }else{
+                return ( <Text from={t.from} text={t.text} key={makeid()} index={i+1} length={this.state.history.length} ttb={this.tellToBot.bind(this)}/>);
+              }
+            }
           )}
           <div className="text inp">
             <i className="material-icons">&#xE315;</i>

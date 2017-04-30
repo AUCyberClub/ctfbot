@@ -2,7 +2,7 @@
 class Storage {
   constructor(){
     console.log("> Storage object created");
-    localStorage.setItem("history", "[]");
+    localStorage.setItem("history", "[{},{},{},{},{},{},{},{},{},{}]");
     if(!localStorage.getItem("userName")){
       this.setUserName('');
     }
